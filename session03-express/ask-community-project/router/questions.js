@@ -24,10 +24,10 @@ router.post('/', (req, res) => {
     const { content, like, dislike } = req.body;
     let data = fs.readFileSync(`./dev-data/questions.json`, "utf8");
     data = JSON.parse(data);
-    let check = data.findIndex((item, index, array) => {
+    let checkData = data.findIndex((item, index, array) => {
         return item.content == content;
     });
-    if (check == -1) {
+    if (checkData == -1) {
         const newId = Date.now();
         let newObj = {
             content: content,
